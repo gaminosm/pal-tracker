@@ -6,6 +6,7 @@ metadata:
     app: pal-tracker
 spec:
   selector:
+
     matchLabels:
       app: pal-tracker
       name: pal-tracker-pod
@@ -18,4 +19,10 @@ spec:
     spec:
       containers:
         - name: pal-tracker-container
-          image: gaminosm/pal-tracker:v0
+          image: gaminosm/pal-tracker:v1
+          env:
+            - name: WELCOME_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: pal-tracker
+                  key: welcome.message
