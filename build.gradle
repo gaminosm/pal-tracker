@@ -25,11 +25,13 @@ test {
 bootRun.environment([
         "WELCOME_MESSAGE": "hello",
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
-        "MANAGEMENT_HEALTH_PROBES_ENABLED": true
+        "MANAGEMENT_HEALTH_PROBES_ENABLED": true,
+        "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
 ])
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
-        "MANAGEMENT_HEALTH_PROBES_ENABLED": true
+        "MANAGEMENT_HEALTH_PROBES_ENABLED": true,
+        "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
 ])
