@@ -5,7 +5,6 @@ metadata:
   labels:
     app: pal-tracker
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: pal-tracker
@@ -22,8 +21,13 @@ spec:
           image: gaminosm/pal-tracker:v3
           readinessProbe:
             httpGet:
-              path: /acutator/health/readiness
+              path: /actuator/health/readiness
               port: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 150
           lifecycle:
             preStop:
               exec:
@@ -34,3 +38,8 @@ spec:
                 configMapKeyRef:
                   name: pal-tracker
                   key: welcome.message
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              valueFrom:
+                configMapKeyRef:
+                  name: pal-tracker
+                  key: management.endpoints.web.exposure.include
