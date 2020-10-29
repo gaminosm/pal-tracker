@@ -82,14 +82,14 @@ resources:
   - name: source-code
     type: git
     source:
-      uri: https://github.com/gaminosm/pal-tracker-k8s.git
+      uri: https://github.com/gaminosm/pal-tracker.git
       branch: master
   - name: version
     type: semver
     source:
       initial_version: "0.0.1"
       driver: git
-      uri: https://github.com/gaminosm/pal-tracker-k8s.git
+      uri: https://github.com/gaminosm/pal-tracker.git
       branch: build
       file: number
       username: ((GITHUB_USERNAME))
